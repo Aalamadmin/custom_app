@@ -1,0 +1,101 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-04-03 18:05:07.448979",
+  "name": "Delete",
+  "style": "",
+  "workflow_state_name": "Delete"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-09-30 14:57:22.992930",
+  "name": "Complete",
+  "style": "",
+  "workflow_state_name": "Complete"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-04-03 17:44:46.229022",
+  "name": "Cancel",
+  "style": "",
+  "workflow_state_name": "Cancel"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-09-30 14:57:23.069066",
+  "name": "Revised",
+  "style": "",
+  "workflow_state_name": "Revised"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-09-30 14:57:23.179402",
+  "name": "Update PO",
+  "style": "",
+  "workflow_state_name": "Update PO"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-09-30 14:57:23.025025",
+  "name": "Receipt Verification",
+  "style": "",
+  "workflow_state_name": "Receipt Verification"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-09-30 14:57:23.101283",
+  "name": "Send to Vendor",
+  "style": "",
+  "workflow_state_name": "Send to Vendor"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-09-30 14:57:22.934478",
+  "name": "Awaiting Approval",
+  "style": "",
+  "workflow_state_name": "Awaiting Approval"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-09-30 14:57:23.121766",
+  "name": "Submit",
+  "style": "",
+  "workflow_state_name": "Submit"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-09-30 14:57:23.085319",
+  "name": "Send For Approval",
+  "style": "",
+  "workflow_state_name": "Send For Approval"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-09-30 14:57:23.009503",
+  "name": "Draft",
+  "style": "",
+  "workflow_state_name": "Draft"
+ }
+]

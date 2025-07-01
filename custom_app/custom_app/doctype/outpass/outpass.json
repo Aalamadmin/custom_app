@@ -1,0 +1,95 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:OP-{YY}-{#####}",
+ "creation": "2024-11-21 12:37:57.080767",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "customer",
+  "customer_address",
+  "column_break_ysig",
+  "status",
+  "sales_person",
+  "return_due_date",
+  "remarks",
+  "section_break_bkja",
+  "item"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fetch_from": "customer.primary_address",
+   "fieldname": "customer_address",
+   "fieldtype": "Text",
+   "label": "Customer Address"
+  },
+  {
+   "fieldname": "column_break_ysig",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Transferred",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Transferred\nReturned"
+  },
+  {
+   "fieldname": "sales_person",
+   "fieldtype": "Link",
+   "label": "Sales Person",
+   "options": "Sales Person"
+  },
+  {
+   "fieldname": "return_due_date",
+   "fieldtype": "Date",
+   "label": "Return Due Date"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "section_break_bkja",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Table",
+   "label": "Item",
+   "options": "Stock Entry Detail"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-11-22 13:01:47.075665",
+ "modified_by": "Administrator",
+ "module": "Custom App",
+ "name": "Outpass",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

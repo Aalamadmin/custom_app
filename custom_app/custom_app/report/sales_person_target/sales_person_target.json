@@ -1,0 +1,51 @@
+{
+ "add_total_row": 1,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2025-05-09 18:01:31.939861",
+ "disabled": 1,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [
+  {
+   "default": "All",
+   "fieldname": "sales_person",
+   "fieldtype": "Data",
+   "label": "Sales Person",
+   "mandatory": 1,
+   "options": "Sales Person",
+   "wildcard_filter": 1
+  }
+ ],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letterhead": null,
+ "modified": "2025-05-09 18:01:31.939861",
+ "modified_by": "Administrator",
+ "module": "Custom App",
+ "name": "Sales Person Target",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\r\n    t1.sales_person,\r\n    SUM(CASE \r\n            WHEN t1.parenttype = 'Sales Invoice' THEN t1.allocated_amount\r\n            ELSE 0\r\n        END) AS billed_amount_invoice,\r\n    SUM(CASE \r\n            WHEN t1.parenttype = 'Sales Order' THEN t1.allocated_amount\r\n            ELSE 0\r\n        END) AS billed_amount_order,\r\n    SUM(CASE \r\n            WHEN t1.parenttype = 'Sales Order' THEN t1.allocated_amount\r\n            ELSE 0\r\n        END) - \r\n    SUM(CASE \r\n            WHEN t1.parenttype = 'Sales Invoice' THEN t1.allocated_amount\r\n            ELSE 0\r\n        END) AS pending_billing_amount\r\nFROM\r\n    `tabSales Team` t1\r\nWHERE\r\n    t1.parenttype IN ('Sales Invoice', 'Sales Order')\r\n    AND (\r\n        %(sales_person)s = 'All'\r\n        OR %(sales_person)s IS NULL\r\n        OR t1.sales_person LIKE %(sales_person)s)\r\n    )\r\nGROUP BY\r\n    t1.sales_person;\r\n",
+ "ref_doctype": "Sales Invoice",
+ "report_name": "Sales Person Target",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Employee Self Service"
+  },
+  {
+   "role": "Billing"
+  },
+  {
+   "role": "Sales Coordinator"
+  }
+ ],
+ "timeout": 0
+}

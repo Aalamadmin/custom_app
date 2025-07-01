@@ -1,0 +1,29 @@
+[
+ {
+  "add_to_transit": 0,
+  "docstatus": 0,
+  "doctype": "Stock Entry Type",
+  "is_standard": 0,
+  "modified": "2025-05-21 13:46:57.901105",
+  "name": "Product Inward",
+  "purpose": "Material Transfer"
+ },
+ {
+  "add_to_transit": 0,
+  "docstatus": 0,
+  "doctype": "Stock Entry Type",
+  "is_standard": 0,
+  "modified": "2025-05-21 13:46:24.525866",
+  "name": "Product Dispatch",
+  "purpose": "Material Transfer"
+ },
+ {
+  "add_to_transit": 0,
+  "docstatus": 0,
+  "doctype": "Stock Entry Type",
+  "is_standard": 0,
+  "modified": "2025-05-21 13:45:57.261879",
+  "name": "Service Inward",
+  "purpose": "Material Receipt"
+ }
+]

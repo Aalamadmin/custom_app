@@ -1,0 +1,37 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2025-01-02 11:40:56.220924",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letterhead": null,
+ "modified": "2025-01-02 11:40:56.220924",
+ "modified_by": "Administrator",
+ "module": "Custom App",
+ "name": "Delayed Purchase Order",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "select\r\n\ttpr.name as purchase_receipt,\r\n\ttpo.name,\r\n\ttpo.supplier,\r\n\ttpo.is_subcontracted,\r\n\ttpo.schedule_date,\r\n\ttpr.posting_date,\r\n\tDATEDIFF(tpo.schedule_date, tpr.posting_date) as diviation_date,\r\n\tROW_NUMBER() OVER (\r\n    PARTITION BY tpo.name\r\nORDER BY\r\n\tDATEDIFF(tpo.schedule_date, tpr.posting_date) DESC\r\n\t) AS row_num\r\nFROM\r\n\t`tabPurchase Receipt Item` tpri\r\nleft join `tabPurchase Receipt` tpr on\r\n\ttpr.name = tpri.parent\r\nleft join `tabPurchase Order` tpo on\r\n\ttpo.name = tpri.purchase_order\r\nwhere\r\n\ttpr.status in ('To Bill', 'Completed')\r\n\tand \r\ntpo.is_subcontracted != true\r\ngroup by\r\n\ttpo.name,\r\n\ttpr.posting_date\r\nhaving\r\n\tdiviation_date < 0 \r\norder by diviation_date\r\nasc limit 0,5",
+ "ref_doctype": "Purchase Order",
+ "report_name": "Delayed Purchase Order",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Purchase User"
+  },
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "Purchase Manager"
+  },
+  {
+   "role": "Logistics"
+  }
+ ],
+ "timeout": 0
+}

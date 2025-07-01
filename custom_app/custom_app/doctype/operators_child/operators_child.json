@@ -1,0 +1,32 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-08-29 10:44:32.641792",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "link_krlk"
+ ],
+ "fields": [
+  {
+   "fieldname": "link_krlk",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "options": "Operators",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-08-29 10:45:16.221298",
+ "modified_by": "Administrator",
+ "module": "Custom App",
+ "name": "Operators Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

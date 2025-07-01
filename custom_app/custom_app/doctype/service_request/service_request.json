@@ -1,0 +1,441 @@
+{
+ "actions": [
+  {
+   "action": "/item-warranty-status",
+   "action_type": "Route",
+   "label": "Check Warranty"
+  },
+  {
+   "action": "/query-report/Serial No Ledger",
+   "action_type": "Route",
+   "label": "Serial Report"
+  }
+ ],
+ "allow_rename": 1,
+ "autoname": "format:SERV-{MM}-{YYYY}-{#####}",
+ "creation": "2025-05-21 13:23:22.274738",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "customer_details_section",
+  "customer",
+  "date",
+  "warranty_available",
+  "service_status",
+  "is_return_to_customer",
+  "customer_dc_no",
+  "transaction_start_date",
+  "column_break_bmnj",
+  "address",
+  "service_type",
+  "service_person",
+  "transaction_end_date",
+  "contact_details_section",
+  "contact_person",
+  "column_break_ejec",
+  "phone_no",
+  "service_item_details_section",
+  "service_item",
+  "approx_amount",
+  "section_break_qkgb",
+  "spare_items",
+  "supplier_details_section",
+  "supplier",
+  "repair_details_section",
+  "damaged_part",
+  "issue_remarks",
+  "column_break_kvjv",
+  "work",
+  "additional_info_tab",
+  "rmi_number",
+  "column_break_elum",
+  "photos_of_the_product",
+  "section_break_fink",
+  "remarks",
+  "amended_from",
+  "more_info_tab",
+  "status_section",
+  "delivery_status",
+  "column_break_nhmf",
+  "billing_status",
+  "address_tab",
+  "customer_address_section",
+  "customer_address",
+  "display_adress",
+  "supplier_address_section",
+  "supplier_address",
+  "supplier_display_adress",
+  "connection_tab"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer_details_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Details"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "Date"
+  },
+  {
+   "default": "0",
+   "fieldname": "warranty_available",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Warranty Available"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "Draft",
+   "fieldname": "service_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Service Status",
+   "options": "Draft\nProduct Inward\nIssue Identified\nDispatch Product\nDispatch Spare\nIn-House Preparation\nProduct Received\nReturn To Customer\nReady for Delivery\nTo Delivery\nTo Invoice\nCompleted\nReady to Dispatch\nUpdate Used Spare",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "depends_on": "eval: ['Product Inward', 'Issue Identified', 'In-House Preparation','Ready for Delivery','Update Used Spare'].includes(doc.service_status)",
+   "fieldname": "is_return_to_customer",
+   "fieldtype": "Check",
+   "label": "Is Return to Customer",
+   "read_only_depends_on": "eval: !['Product Inward', 'Issue Identified', 'In-House Preparation','Ready for Delivery','Update Used Spare'].includes(doc.service_status)"
+  },
+  {
+   "fieldname": "column_break_bmnj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "customer.primary_address",
+   "fieldname": "address",
+   "fieldtype": "Text",
+   "label": "Address",
+   "max_height": "200px"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "service_type",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Service Type"
+  },
+  {
+   "fieldname": "service_item_details_section",
+   "fieldtype": "Section Break",
+   "label": "Service Item Details"
+  },
+  {
+   "fieldname": "service_item",
+   "fieldtype": "Table",
+   "label": "Service Item",
+   "options": "Service Item"
+  },
+  {
+   "depends_on": "eval: doc.service_type === 'In-House Preparation' && ['Update Used Spare', 'To Invoice', 'To Delivery','Completed'].includes(doc.service_status)",
+   "fieldname": "section_break_qkgb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "spare_items",
+   "fieldtype": "Table",
+   "label": "Spare Item",
+   "options": "Service Item"
+  },
+  {
+   "fieldname": "supplier_details_section",
+   "fieldtype": "Section Break",
+   "label": "Supplier Details"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "repair_details_section",
+   "fieldtype": "Section Break",
+   "label": "Repair Details"
+  },
+  {
+   "fieldname": "damaged_part",
+   "fieldtype": "Data",
+   "label": "Damaged Part"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "issue_remarks",
+   "fieldtype": "Small Text",
+   "label": "Issue Remarks"
+  },
+  {
+   "fieldname": "column_break_kvjv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "work",
+   "fieldtype": "Select",
+   "label": "Work",
+   "options": "Repair\nReplacement"
+  },
+  {
+   "fieldname": "additional_info_tab",
+   "fieldtype": "Tab Break",
+   "label": "Additional Info"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "rmi_number",
+   "fieldtype": "Data",
+   "label": "RMI Number",
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_elum",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "photos_of_the_product",
+   "fieldtype": "Attach Image",
+   "label": "Photos of the Product"
+  },
+  {
+   "fieldname": "section_break_fink",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Service Request",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "more_info_tab",
+   "fieldtype": "Tab Break",
+   "label": "More Info"
+  },
+  {
+   "fieldname": "status_section",
+   "fieldtype": "Section Break",
+   "label": "Status"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "delivery_status",
+   "fieldtype": "Data",
+   "label": "Delivery Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_nhmf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "billing_status",
+   "fieldtype": "Select",
+   "label": "Billing Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "connection_tab",
+   "fieldtype": "Tab Break",
+   "label": "Connections",
+   "show_dashboard": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Service Request",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "service_person",
+   "fieldtype": "Link",
+   "label": "Service Person",
+   "link_filters": "[[\"User\",\"role_profile_name\",\"=\",\"Service Team\"]]",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer_dc_no",
+   "fieldtype": "Data",
+   "label": "Customer DC No"
+  },
+  {
+   "fieldname": "contact_details_section",
+   "fieldtype": "Section Break",
+   "label": "Contact Details"
+  },
+  {
+   "fieldname": "contact_person",
+   "fieldtype": "Data",
+   "label": "Contact Person",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ejec",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "phone_no",
+   "fieldtype": "Data",
+   "label": "Phone No",
+   "options": "Phone",
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "approx_amount",
+   "fieldtype": "Currency",
+   "label": "Approx Amount"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "transaction_start_date",
+   "fieldtype": "Date",
+   "label": "Transaction Start Date",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "transaction_end_date",
+   "fieldtype": "Date",
+   "label": "Transaction End Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "address_tab",
+   "fieldtype": "Tab Break",
+   "label": "Address"
+  },
+  {
+   "fieldname": "customer_address_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Address"
+  },
+  {
+   "fieldname": "customer_address",
+   "fieldtype": "Link",
+   "label": "Customer Address",
+   "options": "Address",
+   "reqd": 1
+  },
+  {
+   "fieldname": "display_adress",
+   "fieldtype": "Small Text",
+   "label": "Address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "supplier_address_section",
+   "fieldtype": "Section Break",
+   "label": "Supplier Address"
+  },
+  {
+   "fieldname": "supplier_address",
+   "fieldtype": "Link",
+   "label": "Supplier Address",
+   "options": "Address"
+  },
+  {
+   "fieldname": "supplier_display_adress",
+   "fieldtype": "Small Text",
+   "label": "Supplier Display Address",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "image_field": "photos_of_the_product",
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "group": "Fulfillment",
+   "link_doctype": "Sales Invoice Item",
+   "link_fieldname": "custom_service_request",
+   "parent_doctype": "Sales Invoice"
+  },
+  {
+   "group": "Fulfillment",
+   "link_doctype": "Stock Entry",
+   "link_fieldname": "custom_service_request"
+  },
+  {
+   "group": "Fulfillment",
+   "link_doctype": "Delivery Note Item",
+   "link_fieldname": "custom_against_service_request",
+   "parent_doctype": "Delivery Note"
+  }
+ ],
+ "modified": "2025-06-03 12:43:02.318623",
+ "modified_by": "Administrator",
+ "module": "Custom App",
+ "name": "Service Request",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Service Person",
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Green",
+   "title": "Completed"
+  },
+  {
+   "color": "Red",
+   "title": "Return To Customer"
+  }
+ ]
+}

@@ -1,0 +1,75 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-08-29 11:47:00.448803",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "serial_no",
+  "label_size",
+  "label_size_name",
+  "ups",
+  "no_of_punch",
+  "type"
+ ],
+ "fields": [
+  {
+   "fetch_from": "label_size.serial_no",
+   "fieldname": "serial_no",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Serial No",
+   "read_only": 1
+  },
+  {
+   "fieldname": "label_size",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Label Size",
+   "options": "Label"
+  },
+  {
+   "fetch_from": "label_size.ups",
+   "fieldname": "ups",
+   "fieldtype": "Data",
+   "label": "Ups",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "label_size.no_of_punch",
+   "fieldname": "no_of_punch",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "No of Punch",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "label_size.type",
+   "fieldname": "type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Type",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "label_size.label_size",
+   "fieldname": "label_size_name",
+   "fieldtype": "Data",
+   "label": "Label Size Name",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-08-29 12:24:41.962285",
+ "modified_by": "Administrator",
+ "module": "Custom App",
+ "name": "Label Details Table",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
